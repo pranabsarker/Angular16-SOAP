@@ -1,0 +1,517 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" targetNamespace="http://tempuri.org/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="GetProducts">
+        <s:complexType/>
+      </s:element>
+      <s:element name="GetProductsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetProductsResult" type="tns:ArrayOfProduct"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfProduct">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Product" nillable="true" type="tns:Product"/>
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Product">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Id" nillable="true" type="s:long"/>
+          <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string"/>
+          <s:element minOccurs="0" maxOccurs="1" name="Brand" type="s:string"/>
+          <s:element minOccurs="1" maxOccurs="1" name="Price" type="s:float"/>
+          <s:element minOccurs="0" maxOccurs="1" name="Description" type="s:string"/>
+          <s:element minOccurs="1" maxOccurs="1" name="DiscountedPrice" type="s:float"/>
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetProduct">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="id" type="s:long"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetProductResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetProductResult" type="tns:Product"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CreateProduct">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="product" type="tns:Product"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CreateProductResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="CreateProductResult" type="s:boolean"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateProduct">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="product" type="tns:Product"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateProductResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="UpdateProductResult" type="s:boolean"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteProduct">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="id" type="s:long"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteProductResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="DeleteProductResult" type="s:boolean"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Create1000Products">
+        <s:complexType/>
+      </s:element>
+      <s:element name="Create1000ProductsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="Create1000ProductsResult" type="s:boolean"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteAllProducts">
+        <s:complexType/>
+      </s:element>
+      <s:element name="DeleteAllProductsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="DeleteAllProductsResult" type="s:boolean"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ArrayOfProduct" nillable="true" type="tns:ArrayOfProduct"/>
+      <s:element name="Product" nillable="true" type="tns:Product"/>
+      <s:element name="boolean" type="s:boolean"/>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="GetProductsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetProducts"/>
+  </wsdl:message>
+  <wsdl:message name="GetProductsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetProductsResponse"/>
+  </wsdl:message>
+  <wsdl:message name="GetProductSoapIn">
+    <wsdl:part name="parameters" element="tns:GetProduct"/>
+  </wsdl:message>
+  <wsdl:message name="GetProductSoapOut">
+    <wsdl:part name="parameters" element="tns:GetProductResponse"/>
+  </wsdl:message>
+  <wsdl:message name="CreateProductSoapIn">
+    <wsdl:part name="parameters" element="tns:CreateProduct"/>
+  </wsdl:message>
+  <wsdl:message name="CreateProductSoapOut">
+    <wsdl:part name="parameters" element="tns:CreateProductResponse"/>
+  </wsdl:message>
+  <wsdl:message name="UpdateProductSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateProduct"/>
+  </wsdl:message>
+  <wsdl:message name="UpdateProductSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateProductResponse"/>
+  </wsdl:message>
+  <wsdl:message name="DeleteProductSoapIn">
+    <wsdl:part name="parameters" element="tns:DeleteProduct"/>
+  </wsdl:message>
+  <wsdl:message name="DeleteProductSoapOut">
+    <wsdl:part name="parameters" element="tns:DeleteProductResponse"/>
+  </wsdl:message>
+  <wsdl:message name="Create1000ProductsSoapIn">
+    <wsdl:part name="parameters" element="tns:Create1000Products"/>
+  </wsdl:message>
+  <wsdl:message name="Create1000ProductsSoapOut">
+    <wsdl:part name="parameters" element="tns:Create1000ProductsResponse"/>
+  </wsdl:message>
+  <wsdl:message name="DeleteAllProductsSoapIn">
+    <wsdl:part name="parameters" element="tns:DeleteAllProducts"/>
+  </wsdl:message>
+  <wsdl:message name="DeleteAllProductsSoapOut">
+    <wsdl:part name="parameters" element="tns:DeleteAllProductsResponse"/>
+  </wsdl:message>
+  <wsdl:message name="GetProductsHttpGetIn"/>
+  <wsdl:message name="GetProductsHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfProduct"/>
+  </wsdl:message>
+  <wsdl:message name="GetProductHttpGetIn">
+    <wsdl:part name="id" type="s:string"/>
+  </wsdl:message>
+  <wsdl:message name="GetProductHttpGetOut">
+    <wsdl:part name="Body" element="tns:Product"/>
+  </wsdl:message>
+  <wsdl:message name="DeleteProductHttpGetIn">
+    <wsdl:part name="id" type="s:string"/>
+  </wsdl:message>
+  <wsdl:message name="DeleteProductHttpGetOut">
+    <wsdl:part name="Body" element="tns:boolean"/>
+  </wsdl:message>
+  <wsdl:message name="Create1000ProductsHttpGetIn"/>
+  <wsdl:message name="Create1000ProductsHttpGetOut">
+    <wsdl:part name="Body" element="tns:boolean"/>
+  </wsdl:message>
+  <wsdl:message name="DeleteAllProductsHttpGetIn"/>
+  <wsdl:message name="DeleteAllProductsHttpGetOut">
+    <wsdl:part name="Body" element="tns:boolean"/>
+  </wsdl:message>
+  <wsdl:message name="GetProductsHttpPostIn"/>
+  <wsdl:message name="GetProductsHttpPostOut">
+    <wsdl:part name="Body" element="tns:ArrayOfProduct"/>
+  </wsdl:message>
+  <wsdl:message name="GetProductHttpPostIn">
+    <wsdl:part name="id" type="s:string"/>
+  </wsdl:message>
+  <wsdl:message name="GetProductHttpPostOut">
+    <wsdl:part name="Body" element="tns:Product"/>
+  </wsdl:message>
+  <wsdl:message name="DeleteProductHttpPostIn">
+    <wsdl:part name="id" type="s:string"/>
+  </wsdl:message>
+  <wsdl:message name="DeleteProductHttpPostOut">
+    <wsdl:part name="Body" element="tns:boolean"/>
+  </wsdl:message>
+  <wsdl:message name="Create1000ProductsHttpPostIn"/>
+  <wsdl:message name="Create1000ProductsHttpPostOut">
+    <wsdl:part name="Body" element="tns:boolean"/>
+  </wsdl:message>
+  <wsdl:message name="DeleteAllProductsHttpPostIn"/>
+  <wsdl:message name="DeleteAllProductsHttpPostOut">
+    <wsdl:part name="Body" element="tns:boolean"/>
+  </wsdl:message>
+  <wsdl:portType name="ProductManagementSoap">
+    <wsdl:operation name="GetProducts">
+      <wsdl:input message="tns:GetProductsSoapIn"/>
+      <wsdl:output message="tns:GetProductsSoapOut"/>
+    </wsdl:operation>
+    <wsdl:operation name="GetProduct">
+      <wsdl:input message="tns:GetProductSoapIn"/>
+      <wsdl:output message="tns:GetProductSoapOut"/>
+    </wsdl:operation>
+    <wsdl:operation name="CreateProduct">
+      <wsdl:input message="tns:CreateProductSoapIn"/>
+      <wsdl:output message="tns:CreateProductSoapOut"/>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateProduct">
+      <wsdl:input message="tns:UpdateProductSoapIn"/>
+      <wsdl:output message="tns:UpdateProductSoapOut"/>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteProduct">
+      <wsdl:input message="tns:DeleteProductSoapIn"/>
+      <wsdl:output message="tns:DeleteProductSoapOut"/>
+    </wsdl:operation>
+    <wsdl:operation name="Create1000Products">
+      <wsdl:input message="tns:Create1000ProductsSoapIn"/>
+      <wsdl:output message="tns:Create1000ProductsSoapOut"/>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteAllProducts">
+      <wsdl:input message="tns:DeleteAllProductsSoapIn"/>
+      <wsdl:output message="tns:DeleteAllProductsSoapOut"/>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="ProductManagementHttpGet">
+    <wsdl:operation name="GetProducts">
+      <wsdl:input message="tns:GetProductsHttpGetIn"/>
+      <wsdl:output message="tns:GetProductsHttpGetOut"/>
+    </wsdl:operation>
+    <wsdl:operation name="GetProduct">
+      <wsdl:input message="tns:GetProductHttpGetIn"/>
+      <wsdl:output message="tns:GetProductHttpGetOut"/>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteProduct">
+      <wsdl:input message="tns:DeleteProductHttpGetIn"/>
+      <wsdl:output message="tns:DeleteProductHttpGetOut"/>
+    </wsdl:operation>
+    <wsdl:operation name="Create1000Products">
+      <wsdl:input message="tns:Create1000ProductsHttpGetIn"/>
+      <wsdl:output message="tns:Create1000ProductsHttpGetOut"/>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteAllProducts">
+      <wsdl:input message="tns:DeleteAllProductsHttpGetIn"/>
+      <wsdl:output message="tns:DeleteAllProductsHttpGetOut"/>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="ProductManagementHttpPost">
+    <wsdl:operation name="GetProducts">
+      <wsdl:input message="tns:GetProductsHttpPostIn"/>
+      <wsdl:output message="tns:GetProductsHttpPostOut"/>
+    </wsdl:operation>
+    <wsdl:operation name="GetProduct">
+      <wsdl:input message="tns:GetProductHttpPostIn"/>
+      <wsdl:output message="tns:GetProductHttpPostOut"/>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteProduct">
+      <wsdl:input message="tns:DeleteProductHttpPostIn"/>
+      <wsdl:output message="tns:DeleteProductHttpPostOut"/>
+    </wsdl:operation>
+    <wsdl:operation name="Create1000Products">
+      <wsdl:input message="tns:Create1000ProductsHttpPostIn"/>
+      <wsdl:output message="tns:Create1000ProductsHttpPostOut"/>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteAllProducts">
+      <wsdl:input message="tns:DeleteAllProductsHttpPostIn"/>
+      <wsdl:output message="tns:DeleteAllProductsHttpPostOut"/>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="ProductManagementSoap" type="tns:ProductManagementSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="GetProducts">
+      <soap:operation soapAction="http://tempuri.org/GetProducts" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetProduct">
+      <soap:operation soapAction="http://tempuri.org/GetProduct" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateProduct">
+      <soap:operation soapAction="http://tempuri.org/CreateProduct" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateProduct">
+      <soap:operation soapAction="http://tempuri.org/UpdateProduct" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteProduct">
+      <soap:operation soapAction="http://tempuri.org/DeleteProduct" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Create1000Products">
+      <soap:operation soapAction="http://tempuri.org/Create1000Products" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteAllProducts">
+      <soap:operation soapAction="http://tempuri.org/DeleteAllProducts" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="ProductManagementSoap12" type="tns:ProductManagementSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="GetProducts">
+      <soap12:operation soapAction="http://tempuri.org/GetProducts" style="document"/>
+      <wsdl:input>
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetProduct">
+      <soap12:operation soapAction="http://tempuri.org/GetProduct" style="document"/>
+      <wsdl:input>
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateProduct">
+      <soap12:operation soapAction="http://tempuri.org/CreateProduct" style="document"/>
+      <wsdl:input>
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateProduct">
+      <soap12:operation soapAction="http://tempuri.org/UpdateProduct" style="document"/>
+      <wsdl:input>
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteProduct">
+      <soap12:operation soapAction="http://tempuri.org/DeleteProduct" style="document"/>
+      <wsdl:input>
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Create1000Products">
+      <soap12:operation soapAction="http://tempuri.org/Create1000Products" style="document"/>
+      <wsdl:input>
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteAllProducts">
+      <soap12:operation soapAction="http://tempuri.org/DeleteAllProducts" style="document"/>
+      <wsdl:input>
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="ProductManagementHttpGet" type="tns:ProductManagementHttpGet">
+    <http:binding verb="GET"/>
+    <wsdl:operation name="GetProducts">
+      <http:operation location="/GetProducts"/>
+      <wsdl:input>
+        <http:urlEncoded/>
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetProduct">
+      <http:operation location="/GetProduct"/>
+      <wsdl:input>
+        <http:urlEncoded/>
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteProduct">
+      <http:operation location="/DeleteProduct"/>
+      <wsdl:input>
+        <http:urlEncoded/>
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Create1000Products">
+      <http:operation location="/Create1000Products"/>
+      <wsdl:input>
+        <http:urlEncoded/>
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteAllProducts">
+      <http:operation location="/DeleteAllProducts"/>
+      <wsdl:input>
+        <http:urlEncoded/>
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="ProductManagementHttpPost" type="tns:ProductManagementHttpPost">
+    <http:binding verb="POST"/>
+    <wsdl:operation name="GetProducts">
+      <http:operation location="/GetProducts"/>
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded"/>
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetProduct">
+      <http:operation location="/GetProduct"/>
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded"/>
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteProduct">
+      <http:operation location="/DeleteProduct"/>
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded"/>
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Create1000Products">
+      <http:operation location="/Create1000Products"/>
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded"/>
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteAllProducts">
+      <http:operation location="/DeleteAllProducts"/>
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded"/>
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ProductManagement">
+    <wsdl:port name="ProductManagementSoap" binding="tns:ProductManagementSoap">
+      <soap:address location="http://192.168.1.169:81/ProductManagement/ProductManagement.asmx"/>
+    </wsdl:port>
+    <wsdl:port name="ProductManagementSoap12" binding="tns:ProductManagementSoap12">
+      <soap12:address location="http://192.168.1.169:81/ProductManagement/ProductManagement.asmx"/>
+    </wsdl:port>
+    <wsdl:port name="ProductManagementHttpGet" binding="tns:ProductManagementHttpGet">
+      <http:address location="http://192.168.1.169:81/ProductManagement/ProductManagement.asmx"/>
+    </wsdl:port>
+    <wsdl:port name="ProductManagementHttpPost" binding="tns:ProductManagementHttpPost">
+      <http:address location="http://192.168.1.169:81/ProductManagement/ProductManagement.asmx"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
